@@ -1,3 +1,4 @@
+import DeviceGate from '@/components/auth/DeviceGate';
 import type { Metadata } from 'next';
 import BoothApp from '@/components/booth/BoothApp';
 
@@ -9,5 +10,5 @@ export default async function BoothPage({
   searchParams: Promise<{ frame?: string; mode?: string }>;
 }) {
   const sp = await searchParams;
-  return <BoothApp initialFrameId={sp.frame} initialMode={sp.mode} />;
+  return <DeviceGate><BoothApp initialFrameId={sp.frame} initialMode={sp.mode} /></DeviceGate>;
 }
